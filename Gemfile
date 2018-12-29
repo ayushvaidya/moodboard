@@ -71,3 +71,4 @@ gem 'bootstrap-sass'
 gem 'jquery-rails'
 gem "aws-sdk-s3", require: false
 gem 'dotenv-rails', groups: [:development, :test]
+gem 'bcrypt'
