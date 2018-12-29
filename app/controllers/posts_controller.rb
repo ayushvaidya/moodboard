@@ -4,11 +4,14 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    if params.has_key?(:category)
-      @category = Category.find_by_name(params[:category])
-      @posts = Post.where(category: @category)
-    else
-      @posts = Post.all
+
+    if user_signed_in?
+      if params.has_key?(:category)
+        @category = current_user.categories.find_by_name(params[:category])
+        @posts = current_user.posts.where(category: @category)
+      else
+        @posts = Post.all
+      end
     end
   end
 
@@ -33,7 +36,7 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       if @post.save
-        format.html { redirect_to @post, notice: 'Post was successfully created.' }
+        format.html { redirect_to posts_url, notice: 'Post was successfully created.' }
         format.json { render :show, status: :created, location: @post }
       else
         format.html { render :new }
