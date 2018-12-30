@@ -12,15 +12,16 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :category_id %>
-    <%= form.select(:category_id, options_from_collection_for_select(current_user.categories, :id, :name), include_blank: "Select Category") %>
+    <%= form.label :board %>
+    <%= form.select(:category_id, options_from_collection_for_select(current_user.categories, :id, :name), include_blank: "Select Board") %>
   </div>
 
   <div class="field">
-    <%= form.file_field :file, class: "file-field" %>
+    <%= form.file_field :image, class: "file-field" %>
   </div>
 
   <div class="actions">
     <%= form.submit %>
   </div>
 <% end %>
+

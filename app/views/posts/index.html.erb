@@ -1,16 +1,40 @@
-<div class="page-container">
+<div class="page-center">
+  <div class="page-container">
 
-  <% if user_signed_in? %>
-    <h1>Posts</h1>
+    <% if user_signed_in? %>
+      <% if params.has_key?(:category) %>
+        <div class="posts-header">
+            <div class="info">
+              <div class="label">Board name</div>
+              <div class="board-name"><%= @category.name %></div>
+            </div>
 
-    <%= link_to 'New Post', new_post_path %>
+          <%= link_to new_post_path do %>
+            <div class="new-post-button">
+              <i class="fal fa-plus"></i>
+            </div>
+          <% end %>
+        </div>
 
-    <% @posts.each do |post| %>
-      <div class="post-box">
-        <%= post.title %>
-        <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
-      </div>
+        <% @posts.each do |post| %>
+          <div class="post-box" style="background-image:url(<%= post.image.service_url %>)">
+            <%= post.title %>
+            <!--<%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>-->
+          </div>
+        <% end %>
+
+      <% else %>
+
+        <% Category.all.each do |cat| %>
+          <%= link_to posts_path(category: cat.name) do %>
+            <div class="post-box">
+              <%= cat.name %>
+            </div>
+          <% end %>
+        <% end %>
+
+      <% end %>
     <% end %>
-  <% end %>
 
+  </div>
 </div>

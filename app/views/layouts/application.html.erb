@@ -7,6 +7,7 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-LRlmVvLKVApDVGuspQFnRQJjkv0P7/YFrw84YYQtmYG4nK8c+M+NlmYDCv0rKWpG" crossorigin="anonymous">
   </head>
   <body>
 
@@ -19,13 +20,15 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Project name</a>
+          <%= link_to "MOODBOARD", root_path, class: "navbar-brand" %>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
             <% if user_signed_in? %>
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Boards<span class="caret"></span></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                <i class="fal fa-th-large"></i>
+              </a>
               <ul class="dropdown-menu">
                 <% current_user.categories.each do |cat| %>
                   <li>
@@ -37,13 +40,15 @@
                 </li>
               </ul>
             </li>
+
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Account<span class="caret"></span></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fal fa-user"></i></a>
               <ul class="dropdown-menu">
                 <li><a href="#">Settings</a></li>
-                <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
+                <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
               </ul>
             </li>
+
             <% else %>
               <li class="nav-item">
                 <%= link_to "Sign Up", new_user_registration_path %>
