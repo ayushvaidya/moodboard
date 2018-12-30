@@ -18,6 +18,7 @@
 @import "bootstrap";
 
 $primary-color: #1fd760;
+$light-green: #ECF9F1;
 
 /** Navbar **/
 
@@ -30,6 +31,20 @@ $primary-color: #1fd760;
   display: flex;
   align-items: center;
 
+  .dropdown-toggle {
+    display: flex;
+    align-items: center;
+    margin-left: 16px;
+  }
+
+  .nav-text {
+    font-weight: 500;
+    margin-left: 8px;
+  }
+
+  .dropdown-menu {
+    border: none;
+  }
 }
 
 .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
@@ -69,13 +84,13 @@ a:hover, a:focus {
 }
 
 .container {
-  width: 1200px;
+  width: 1080px;
 }
 
 .page-container {
   position: relative;
   display: inline-block;
-  width: 1200px;
+  width: 1000px;
   margin: 0 auto;
   margin-top: 120px;
   margin-bottom: 160px;
@@ -102,17 +117,60 @@ a:hover, a:focus {
 
 .post-box {
   width: calc((100% / 3) - 8px);
-  height: 290px;
-  background-color: #f8f8f8;
+  padding-bottom: calc((100% / 3) - 8px);
+  background-color: $light-green;
   float: left;
   margin-right: 8px;
   background-size: cover;
+  background-position: center;
   margin-bottom: 8px;
+  position: relative;
+
+  .board-title {
+    font-size: 48px;
+    font-weight: 600;
+    margin-left: 24px;
+    margin-bottom: 24px;
+    text-align: left;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    color: $light-green;
+    text-shadow:
+     -1px -1px 0 #000,
+      1px -1px 0 #000,
+      -1px 1px 0 #000,
+       1px 1px 0 #000;
+  }
 }
 
 .post-box:nth-child(3n+1) {
     margin-right: 0px;
   }
+
+.empty-post-box {
+  width: 100%;
+  height: 320px;
+  background-color: $light-green;
+  position: relative;
+
+  .text {
+  font-size: 60px;
+  font-weight: 600;
+  margin-left: 24px;
+  margin-bottom: 24px;
+  text-align: left;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  color: $light-green;
+  text-shadow:
+   -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+     1px 1px 0 #000;
+  }
+}
 
 .new-post-button {
   height: 48px;

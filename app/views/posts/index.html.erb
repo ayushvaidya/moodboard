@@ -16,6 +16,8 @@
           <% end %>
         </div>
 
+        <% unless @posts.blank? %>
+
         <% @posts.each do |post| %>
           <div class="post-box" style="background-image:url(<%= post.image.service_url %>)">
             <%= post.title %>
@@ -23,11 +25,33 @@
           </div>
         <% end %>
 
+        <% else %>
+          <div class="empty-post-box">
+            <div class="text">
+              This board has no posts.
+              <br>
+              Let’s create some
+            </div>
+          </div>
+
+        <% end %>
+
+
       <% else %>
+        <div class="posts-header">
+          <div class="board-name">Your Boards</div>
+        </div>
+
+        <%= link_to new_category_path, class: "post-box" do %>
+          <div class="board-title">
+            Create a new board
+          </div>
+        <% end %>
+
 
         <% Category.all.each do |cat| %>
-          <%= link_to posts_path(category: cat.name) do %>
-            <div class="post-box">
+          <%= link_to posts_path(category: cat.name), class: "post-box" do %>
+            <div class="board-title">
               <%= cat.name %>
             </div>
           <% end %>

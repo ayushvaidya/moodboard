@@ -26,9 +26,12 @@
           <ul class="nav navbar-nav navbar-right">
             <% if user_signed_in? %>
             <li class="dropdown">
+
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                 <i class="fal fa-th-large"></i>
+                <div class="nav-text">Boards</div>
               </a>
+
               <ul class="dropdown-menu">
                 <% current_user.categories.each do |cat| %>
                   <li>
@@ -44,7 +47,6 @@
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fal fa-user"></i></a>
               <ul class="dropdown-menu">
-                <li><a href="#">Settings</a></li>
                 <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
               </ul>
             </li>
