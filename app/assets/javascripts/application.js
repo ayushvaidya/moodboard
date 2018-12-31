@@ -17,3 +17,7 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+
+window.onload = function() {
+$('#file-upload').bind('change', function() { var fileName = ''; fileName = ('Image selected: ' +$(this).val()); $('#file-selected').html(fileName); })
+};

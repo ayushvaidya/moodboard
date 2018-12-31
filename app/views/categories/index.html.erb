@@ -1,29 +1,28 @@
-<p id="notice"><%= notice %></p>
+<div class="page-center">
+  <div class="page-container">
 
-<h1>Categories</h1>
-<%= link_to 'New Post', new_post_path %>
+    <div class="posts-title">Your Boards</div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
+
     <% @categories.each do |category| %>
-      <tr>
+        <%= link_to posts_path(category: category.name), class: "post-box" do %>
+          <div class="board-title">
+            <%= category.name %>
+          </div>
+        <% end %>
+
         <td><%= category.name %></td>
         <td><%= link_to 'Show', category %></td>
         <td><%= link_to 'Edit', edit_category_path(category) %></td>
         <td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+
     <% end %>
-  </tbody>
-</table>
 
-<br>
 
-<%= link_to 'New Category', new_category_path %>
+    <br>
 
+    <%= link_to 'New Category', new_category_path %>
+
+  </div>
+</div>

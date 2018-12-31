@@ -20,6 +20,8 @@
 $primary-color: #1fd760;
 $primary-color-hover: #11bb4d;
 $light-green: #ECF9F1;
+$light-green-hover: #D3F1DD;
+$gray-text: #777;
 
 /** Navbar **/
 
@@ -59,6 +61,20 @@ $light-green: #ECF9F1;
   letter-spacing: 1px;
 }
 
+/** Alerts **/
+
+.alert-info {
+  position: absolute;
+  margin-top: 60px;
+  border-radius: 0px;
+  text-align: center;
+  z-index: 100;
+  width: 100%;
+  background-color: #f8f8f8;
+  color: $gray-text;
+  border: 0px;
+}
+
 
 /** Fonts **/
 
@@ -72,7 +88,7 @@ a:hover, a:focus {
 
 .label {
   font-size: 11px;
-  color: #808080;
+  color: $gray-text;
   letter-spacing: 1px;
   font-weight: 600;
   text-transform: uppercase;
@@ -93,7 +109,7 @@ a:hover, a:focus {
   display: inline-block;
   width: 1000px;
   margin: 0 auto;
-  margin-top: 120px;
+  margin-top: 144px;
   margin-bottom: 160px;
 }
 
@@ -109,6 +125,24 @@ a:hover, a:focus {
 .board-name {
   font-size: 48px;
   font-weight: 600;
+  display: flex;
+  align-items: center;
+
+  a {
+    display: flex;
+    align-items: center;
+    margin-left: 16px;
+  }
+
+  .fal {
+    color: $gray-text;
+    font-size: 24px;
+    margin-top: 4px;
+
+    &:hover {
+      color: $primary-color;
+    }
+  }
 }
 
 .posts-header {
@@ -153,8 +187,53 @@ a:hover, a:focus {
 }
 
 .post-box:nth-child(3n+1) {
-    margin-right: 0px;
+  margin-right: 0px;
+}
+
+.post-box-overlay {
+  background-color: rgba(0,0,0,0.3);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  display: none;
+}
+
+.board-box {
+  &:hover {
+    background-color: $light-green-hover;
   }
+}
+
+.board-box:hover .board-title {
+  color: $light-green-hover;
+}
+
+.post-destroy {
+  display: none;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin-bottom: 16px;
+  margin-right: 16px;
+  color: white;
+
+  &:hover {
+    background-color: white;
+    padding: 4px;
+    color: black;
+    margin-bottom: 12px;
+    margin-right: 12px;
+    border-radius: 4px;
+  }
+}
+
+.post-box:hover .post-destroy {
+  display: block;
+}
+
+.post-box:hover .post-box-overlay {
+  display: block;
+}
 
 .empty-post-box {
   width: 100%;
@@ -251,8 +330,43 @@ a:hover, a:focus {
 .shared-links {
   text-align: center;
   margin-top: 40px;
+  display: flex;
+  flex-direction: column;
 }
 
 .link-style {
-  color: $primary-color;
+  color: $gray-text;
+
+  &:hover {
+    color: #000;
+  }
 }
+
+.link-style:nth-child(even) {
+  margin-top: 16px;
+}
+
+.custom-file-upload {
+  background-color: $light-green;
+  border-radius: 4px;
+  margin-bottom: 16px;
+  display: inline-block;
+  padding: 6px 12px;
+  cursor: pointer;
+  width: 100%;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+
+  &:hover {
+    background-color: $light-green-hover;
+  }
+
+  input[type="file"] {
+      display: none;
+  }
+}
+
+

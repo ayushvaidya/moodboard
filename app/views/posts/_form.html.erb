@@ -17,12 +17,13 @@
   </div>
 
 
-  <div class="field">
-    <%= form.file_field :image, class: "form-control" %>
-  </div>
+  <label class="custom-file-upload">
+    <span id="file-selected">Select Image</span>
+    <%= form.file_field :image, class: "form-control", id: "file-upload" %>
+  </label>
 
   <div class="actions">
-    <%= form.button :submit, class: "form-button" %>
+    <%= form.button :submit, "Upload", class: "form-button" %>
   </div>
 <% end %>
 

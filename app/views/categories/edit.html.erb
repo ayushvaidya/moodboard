@@ -1,6 +1,34 @@
-<h1>Editing Category</h1>
+<div class="form-container">
+<div class="form-title">Rename Board</div>
 
-<%= render 'form', category: @category %>
+  <%= simple_form_for @category, html: { multipart: true } do |form| %>
+    <% if @category.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(category.errors.count, "error") %> prohibited this category from being saved:</h2>
 
-<%= link_to 'Show', @category %> |
-<%= link_to 'Back', categories_path %>
+        <ul>
+        <% category.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= form.text_field :name,
+        class: "form-control",
+        placeholder: "Board name",
+        required: true %>
+    </div>
+
+    <div class="actions">
+      <%= form.button :submit, "Save changes", class: "form-button" %>
+    </div>
+  <% end %>
+
+  <div class="shared-links">
+    <%= link_to 'Delete board', @category, method: :delete, data: { confirm: 'Are you sure?' }, class: 'link-style' %>
+    <%= link_to 'Return home', root_path, class: 'link-style' %>
+
+  </div>
+</div>
