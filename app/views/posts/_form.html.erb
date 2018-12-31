@@ -1,4 +1,4 @@
-<%= form_with(model: post, local: true) do |form| %>
+<%= simple_form_for @post, html: { multipart: true } do |form| %>
   <% if post.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
@@ -11,17 +11,18 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :board %>
-    <%= form.select(:category_id, options_from_collection_for_select(current_user.categories, :id, :name), include_blank: "Select Board") %>
-  </div>
 
   <div class="field">
-    <%= form.file_field :image, class: "file-field" %>
+    <%= form.hidden_field :category_id, value: params[:category] %>
+  </div>
+
+
+  <div class="field">
+    <%= form.file_field :image, class: "form-control" %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.button :submit, class: "form-button" %>
   </div>
 <% end %>
 

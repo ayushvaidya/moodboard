@@ -9,11 +9,12 @@
               <div class="board-name"><%= @category.name %></div>
             </div>
 
-          <%= link_to new_post_path do %>
+          <%= link_to new_post_path(@category, category: @category.id) do %>
             <div class="new-post-button">
               <i class="fal fa-plus"></i>
             </div>
           <% end %>
+
         </div>
 
         <% unless @posts.blank? %>
@@ -33,7 +34,6 @@
               Let’s create some
             </div>
           </div>
-
         <% end %>
 
 

@@ -4,6 +4,7 @@ class Post < ApplicationRecord
 
   has_one_attached :image
   validates :image, :presence => true
+  validates :category, :presence => true
 
   def correct_document_mime_type
     if avatar.attached? && !avatar.content_type.in?(%w(image/jpg image/jpeg image/gif image/png))
