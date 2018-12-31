@@ -18,6 +18,7 @@
 @import "bootstrap";
 
 $primary-color: #1fd760;
+$primary-color-hover: #11bb4d;
 $light-green: #ECF9F1;
 
 /** Navbar **/
@@ -190,6 +191,10 @@ a:hover, a:focus {
   font-size: 24px;
   color: white;
   box-shadow: 0 5px 15px 0 rgba(0,0,0,0.15);
+
+  &:hover {
+    background-color: $primary-color-hover;
+  }
 }
 
 /** Forms **/
@@ -223,6 +228,16 @@ a:hover, a:focus {
   box-shadow: 0 5px 15px 0 rgba(0,0,0,0.15);
   color: white;
   font-weight: 500;
+
+  &:hover {
+    background-color: $primary-color-hover;
+    color: white;
+  }
+
+  &:focus {
+    background-color: $primary-color-hover;
+    color: white;
+  }
 }
 
 .remember-me {
