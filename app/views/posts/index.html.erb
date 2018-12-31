@@ -37,7 +37,10 @@
           <% else %>
 
             <div class="post-box">
-              <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
+              <div class="post-box-overlay"></div>
+              <%= link_to post, method: :delete, data: { confirm: 'Are you sure?' }, class: 'post-destroy' do %>
+                  <i class="fal fa-trash-alt"></i>
+              <% end %>
             </div>
 
           <% end %>
