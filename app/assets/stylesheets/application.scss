@@ -182,6 +182,7 @@ a:hover, a:focus {
   background-position: center;
   margin-bottom: 8px;
   position: relative;
+  cursor: pointer;
 
   .board-title {
     font-size: 48px;
@@ -199,10 +200,6 @@ a:hover, a:focus {
       -1px 1px 0 #000,
        1px 1px 0 #000;
   }
-}
-
-.post-box:nth-child(3n+1) {
-  margin-right: 0px;
 }
 
 .post-box-overlay {

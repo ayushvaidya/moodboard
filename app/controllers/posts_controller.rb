@@ -8,9 +8,9 @@ class PostsController < ApplicationController
     if user_signed_in?
       if params.has_key?(:category)
         @category = current_user.categories.find_by_name(params[:category])
-        @posts = current_user.posts.where(category: @category)
+        @posts = current_user.posts.where(category: @category).order(:position)
       else
-        @posts = Post.all
+        @posts = Post.order(:position)
       end
     end
   end
@@ -19,6 +19,17 @@ class PostsController < ApplicationController
   # GET /posts/1.json
   def show
   end
+
+  def sort
+    params[:post].each_with_index do |id, index|
+      Post.where(id: id).update_all(position: index + 1)
+    end
+
+    head :ok
+  end
+
+
+
 
   # GET /posts/new
   def new

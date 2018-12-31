@@ -24,27 +24,29 @@
 
         <% unless @posts.blank? %>
 
-        <% @posts.each do |post| %>
-          <% if post.image.attached? %>
+        <div id="posts" data-url="<%= sort_posts_path %>">
+          <% @posts.each do |post| %>
+            <% if post.image.attached? %>
 
-            <div class="post-box" style="background-image:url(<%= post.image.service_url %>)">
-              <div class="post-box-overlay"></div>
-              <%= link_to post, method: :delete, data: { confirm: 'Are you sure?' }, class: 'post-destroy' do %>
-                  <i class="fal fa-trash-alt"></i>
-              <% end %>
-            </div>
+              <div class="post-box" style="background-image:url(<%= post.image.service_url %>)", id="<%= dom_id(post) %>">
+                <div class="post-box-overlay"></div>
+                <%= link_to post, method: :delete, data: { confirm: 'Are you sure?' }, class: 'post-destroy' do %>
+                    <i class="fal fa-trash-alt"></i>
+                <% end %>
+              </div>
 
-          <% else %>
+            <% else %>
 
-            <div class="post-box">
-              <div class="post-box-overlay"></div>
-              <%= link_to post, method: :delete, data: { confirm: 'Are you sure?' }, class: 'post-destroy' do %>
-                  <i class="fal fa-trash-alt"></i>
-              <% end %>
-            </div>
+              <div class="post-box">
+                <div class="post-box-overlay"></div>
+                <%= link_to post, method: :delete, data: { confirm: 'Are you sure?' }, class: 'post-destroy' do %>
+                    <i class="fal fa-trash-alt"></i>
+                <% end %>
+              </div>
 
+            <% end %>
           <% end %>
-        <% end %>
+        </div>
 
         <% else %>
           <div class="empty-post-box">
