@@ -13,6 +13,7 @@ class PostsController < ApplicationController
         @posts = Post.order(:position)
       end
     end
+
   end
 
   # GET /posts/1

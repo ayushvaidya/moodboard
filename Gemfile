@@ -71,8 +71,6 @@ gem 'devise'
 gem 'bootstrap-sass'
 gem 'jquery-rails'
 gem "aws-sdk-s3", require: false
-
 gem 'bcrypt'
-
 gem 'jquery-ui-rails', '~> 5.0', '>= 5.0.5'
 gem 'acts_as_list'

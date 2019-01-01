@@ -16,8 +16,7 @@
     <%= form.hidden_field :category_id, value: params[:category] %>
   </div>
 
-
-  <label class="custom-file-upload">
+  <label class="custom-file-upload" id="image-upload">
     <span id="file-selected">Select Image</span>
     <%= form.file_field :image, class: "form-control", id: "file-upload" %>
   </label>
