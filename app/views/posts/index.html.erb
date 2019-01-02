@@ -71,7 +71,7 @@
         <% end %>
 
 
-        <% Category.all.each do |cat| %>
+        <% Category.each do |cat| %>
           <%= link_to posts_path(category: cat.name), class: "post-box board-box" do %>
             <div class="board-title">
               <%= cat.name %>
